@@ -14,6 +14,8 @@ import { Directions } from "./constants.js";
 import Endpoint from "./circuit-diagram-endpoint";
 import Connection from "./circuit-diagram-connection";
 import Navigate from "./circuit-diagram-navigate";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * Draw a Concatenated circuit
@@ -26,7 +28,7 @@ import Navigate from "./circuit-diagram-navigate";
  * This is of the form:
  *     [endpoint, connection, endpoint, connection, endpoint, ...]
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {
@@ -46,24 +48,24 @@ export default React.createClass({
     propTypes: {
 
         /** The width of the circuit diagram */
-        width: React.PropTypes.number,
+        width: PropTypes.number,
 
         /** The height of the circuit diagram */
-        height: React.PropTypes.number,
+        height: PropTypes.number,
 
         /** The position of the title relative to the left side of the diagram */
-        titleOffsetX: React.PropTypes.number,
+        titleOffsetX: PropTypes.number,
 
         /** The position of the title relative to the top of the diagram */
-        titleOffsetY: React.PropTypes.number,
+        titleOffsetY: PropTypes.number,
 
         /** The blank margin around the diagram drawing */
-        margin: React.PropTypes.number,
+        margin: PropTypes.number,
 
         /**
          * Controls shape of the line, can be "linear", "square", "angled", "arc".
          */
-        lineShape: React.PropTypes.oneOf(["linear", "square", "angled", "arc"]),
+        lineShape: PropTypes.oneOf(["linear", "square", "angled", "arc"]),
 
         /**
          * To accurately display each of the member circuits, the concatenated circuit
@@ -98,17 +100,17 @@ export default React.createClass({
          * ];
          * ```
          */
-        memberList: React.PropTypes.array.isRequired,
-        
+        memberList: PropTypes.array.isRequired,
+
         /**
          * Described the position of the connection label; accepts **"top"**, **"center"**, or **"bottom"**
          */
-        connectionLabelPosition: React.PropTypes.oneOf(["top", "center", "bottom"]),
-        
+        connectionLabelPosition: PropTypes.oneOf(["top", "center", "bottom"]),
+
         /**
          * The position of the label around the endpoint.
          */
-        endpointLabelPosition: React.PropTypes.oneOf([
+        endpointLabelPosition: PropTypes.oneOf([
             "left",
             "right",
             "top",
@@ -122,48 +124,48 @@ export default React.createClass({
             "topleftangled",
             "toprightangled"
         ]),
-        
+
         /**
          * This is the vertical distance from the center line to offset
          * the connection label.
          */
-        yOffset: React.PropTypes.number,
-        
+        yOffset: PropTypes.number,
+
         /**
          * This is the distance from the endpoint that the endpoint
          * label will be rendered.
          */
-        endpointLabelOffset: React.PropTypes.number,
-        
+        endpointLabelOffset: PropTypes.number,
+
         /**
          * The string to display in the top left corner of the diagram
          */
-        title: React.PropTypes.string,
+        title: PropTypes.string,
 
         /**
          * Value that determines whether or not the upper left corner title is displayed
          */
-        hideTitle: React.PropTypes.bool,
-                
+        hideTitle: PropTypes.bool,
+
         /**
          * Determines if the circuit view is muted.  Typically used in
          * conjunction with `parentID`
          */
-        disabled: React.PropTypes.bool,
-        
+        disabled: PropTypes.bool,
+
         /**
          * Callback function used to handle clicks.
          */
-        onSelectionChange: React.PropTypes.func,
-        
+        onSelectionChange: PropTypes.func,
+
         /**
          * Value that if provided, will render a small nav arrow that
          * when clicked, navigates to that element. Used mainly when we want
          * to show a parent / child relationship between two circuits.
          */
-        parentId: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.Number
+        parentId: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.Number
         ])
     },
 

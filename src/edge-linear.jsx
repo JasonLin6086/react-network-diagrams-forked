@@ -12,6 +12,8 @@ import React from "react";
 import Vector from "victor";
 import _ from "underscore";
 import Label from "./edge-label";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * This component draws a linear bent path between a source and target. The
@@ -24,7 +26,7 @@ import Label from "./edge-label";
  *
  * The color and width of the edge may also be supplied.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {

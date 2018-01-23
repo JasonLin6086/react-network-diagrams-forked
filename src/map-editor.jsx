@@ -14,10 +14,12 @@ import Select from "react-select";
 import Resizable from "./resizable";
 import BaseMap from "./map-base";
 import Node from "./node";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 let counter = 1;
 
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {

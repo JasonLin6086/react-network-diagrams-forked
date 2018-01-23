@@ -13,8 +13,10 @@ import _ from "underscore";
 import Connection from "./circuit-diagram-connection";
 import Endpoint from "./circuit-diagram-endpoint";
 import Label from "./edge-label";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
-export default React.createClass({
+export default createReactClass({
 
     getInitialState() {
         return { hover: false };
@@ -42,7 +44,7 @@ export default React.createClass({
     propTypes: {
 
         /** The width of the circuit diagram */
-        width: React.PropTypes.number,
+        width: PropTypes.number,
 
         /**
          * To accurately display each panel, modules, and groups of circuits,
@@ -121,53 +123,53 @@ export default React.createClass({
          * ];
          * ```
          */
-        panels: React.PropTypes.array.isRequired,
+        panels: PropTypes.array.isRequired,
 
         /**
          * The style of the panel - this is the "container" for the modules and couplers.
          */
-        panelStyle: React.PropTypes.object,
+        panelStyle: PropTypes.object,
 
         /**
          * The style for the couplers, rendered in groups according to their modules.
          */
-        couplerStyle: React.PropTypes.object,
+        couplerStyle: PropTypes.object,
 
         /**
          * This is the vertical distance from the center line to offset the connection label
          */
-        yOffset: React.PropTypes.number,
+        yOffset: PropTypes.number,
 
         /**
          * This is the vertical spacing between each module group
          */
-        moduleSpacing: React.PropTypes.number,
+        moduleSpacing: PropTypes.number,
 
         /**
          * This is the vertical spacing between each panel
          */
-        panelSpacing: React.PropTypes.number,
+        panelSpacing: PropTypes.number,
 
         /**
          * This is the vertical spacing between each coupler
          */
-        couplerSpacing: React.PropTypes.number,
+        couplerSpacing: PropTypes.number,
 
         /**
          * This is the distance from the center of the \<svg\> grid that the panel
          * is to be rendered
          */
-        panelWidth: React.PropTypes.number,
+        panelWidth: PropTypes.number,
 
         /**
          * Callback evoked when the selection changes
          */
-        onSelectionChange: React.PropTypes.func,
+        onSelectionChange: PropTypes.func,
 
         /**
          * This is the distance from the endpoint that the endpoint label will be rendered.
          */
-        endpointLabelOffset: React.PropTypes.number,
+        endpointLabelOffset: PropTypes.number,
 
         //
         // The following props have default values and are optional for styling:
@@ -176,52 +178,52 @@ export default React.createClass({
         /**
          * Controls the corner rounding of the center coupler on the x-axis
          */
-        roundedX: React.PropTypes.number,
+        roundedX: PropTypes.number,
 
         /**
          * Controls the corner rounding of the center coupler on the y-axis
          */
-        roundedY: React.PropTypes.number,
+        roundedY: PropTypes.number,
 
         /**
          * Controls the size of the couper line cap
          */
-        couplerEndpointRadius: React.PropTypes.number,
+        couplerEndpointRadius: PropTypes.number,
 
         /**
          * Controls the corner rounding of the square line-caps on the x-axis
          */
-        endpointRoundedX: React.PropTypes.number,
+        endpointRoundedX: PropTypes.number,
 
         /**
          * Controls the corner rounding of the square line-caps on the y-axis
          */
-        endpointRoundedY: React.PropTypes.number,
+        endpointRoundedY: PropTypes.number,
 
         /**
          * Controls where label is situated in the center coupler
          */
-        couplerLabelPosition: React.PropTypes.oneOf(["top", "bottom", "center"]),
+        couplerLabelPosition: PropTypes.oneOf(["top", "bottom", "center"]),
 
         /**
          * Controls the corner rounding of the panel on the x-axis
          */
-        panelRoundedX: React.PropTypes.number,
+        panelRoundedX: PropTypes.number,
 
         /**
          * Controls the corner rounding of the panel on the y-axis
          */
-        panelRoundedY: React.PropTypes.number,
+        panelRoundedY: PropTypes.number,
 
         /**
          * Controls the +/- x offset from labelPosition
          */
-        labelOffsetX: React.PropTypes.number,
+        labelOffsetX: PropTypes.number,
 
         /**
          * Controls the +/- y offset from labelPosition
          */
-        labelOffsetY: React.PropTypes.number
+        labelOffsetY: PropTypes.number
     },
 
     handleSelectionChange(e, value) {

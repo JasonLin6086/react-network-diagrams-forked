@@ -13,6 +13,8 @@ import Endpoint from "./circuit-diagram-endpoint";
 import Connection from "./circuit-diagram-connection";
 import Navigate from "./circuit-diagram-navigate";
 import { Directions } from "./constants.js";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * Renders a horizontal circuit by determining `x1`, `x2`, `y1`, `y2`
@@ -20,7 +22,7 @@ import { Directions } from "./constants.js";
  * connection and endpoint props. Connection shape, style, and label information,
  * are passed in as props
  */
-export default React.createClass({
+export default createReactClass({
 
     displayName: "BasicDiagram",
 
@@ -41,10 +43,10 @@ export default React.createClass({
 
     propTypes: {
         /** The style of the line */
-        lineStyle: React.PropTypes.object.isRequired,
+        lineStyle: PropTypes.object.isRequired,
 
         /** Text value describing the shape of the line, "linear", "curved", etc. */
-        lineShape: React.PropTypes.oneOf([
+        lineShape: PropTypes.oneOf([
             "linear",
             "curved",
             "square",
@@ -54,7 +56,7 @@ export default React.createClass({
         /**
          * Describes the position of the connection label.
          */
-        connectionLabelPosition: React.PropTypes.oneOf([
+        connectionLabelPosition: PropTypes.oneOf([
             "top",
             "center",
             "bottom"
@@ -64,50 +66,50 @@ export default React.createClass({
          * String to be displayed for the connection. If an array of strings is
          * supplied they will be displayed in a multi-line layout.
          */
-        circuitLabel: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+        circuitLabel: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.string)
         ]),
 
         /**
          * Vertical distance from the center line to offset the connection label.
          */
-        yOffset: React.PropTypes.number,
+        yOffset: PropTypes.number,
 
         /**
          * The string to display in the top left corner of the diagram.
          */
-        title: React.PropTypes.string,
+        title: PropTypes.string,
 
         /**
          * Boolean value that determines if the element uses the onSelectionChange
          * change and can be clicked
          */
-        noNavigate: React.PropTypes.bool,
+        noNavigate: PropTypes.bool,
 
         /** Controls the size of the square */
-        size: React.PropTypes.number,
+        size: PropTypes.number,
 
         /** controls if a horizontal line is drawn down the center of a square */
-        centerLine: React.PropTypes.bool,
+        centerLine: PropTypes.bool,
 
         /**
          * This value is used to determine X coordinates for a square, if you want
          * the square to be smaller than the default line width. Overrides the
          * margin prop if a square is displayed
          */
-        squareWidth: React.PropTypes.number,
+        squareWidth: PropTypes.number,
 
         /**
          * The style of the endpoint.
          * TODO: be more explicit here about the expected shape.
          */
-        endpointStyle: React.PropTypes.object,
+        endpointStyle: PropTypes.object,
 
         /**
          * The position of the label around the endpoint.
          */
-        endpointLabelPosition: React.PropTypes.oneOf([
+        endpointLabelPosition: PropTypes.oneOf([
             "left",
             "right",
             "top",
@@ -124,31 +126,31 @@ export default React.createClass({
         /**
          * Left side endpoint label
          */
-        endpointLabelA: React.PropTypes.string,
+        endpointLabelA: PropTypes.string,
 
         /**
          * Right side endpoint label
          */
-        endpointLabelZ: React.PropTypes.string,
+        endpointLabelZ: PropTypes.string,
 
         /**
          * Disables the circuit by muting the colors and disabling events.
          */
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
 
         /**
          * Callback specified to handle selection of the circuit. The value supplied
          * to the callback is whatever was specified in the navTo prop.
          */
-        onSelectionChange: React.PropTypes.func,
+        onSelectionChange: PropTypes.func,
 
         /**
          * Value passed down to the click handler at the lowest level primitive.
          * Will return to the onSelectionChange its value.
          */
-        navTo: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.number
+        navTo: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
         ]),
 
         /**
@@ -156,9 +158,9 @@ export default React.createClass({
          * navigates to that element. Used mainly when we want to show a parent / child
          * relationship between two circuits.
          */
-        parentId: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.number
+        parentId: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
         ])
     },
 

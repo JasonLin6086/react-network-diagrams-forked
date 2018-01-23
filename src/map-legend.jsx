@@ -10,8 +10,10 @@
 
 import React from "react";
 import _ from "underscore";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {

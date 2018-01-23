@@ -10,6 +10,8 @@
 
 import React from "react";
 import { Directions } from "./constants.js";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * Draws a navigation triangle used to navigate back up to the parent. This is
@@ -17,7 +19,7 @@ import { Directions } from "./constants.js";
  * back up to the parent circuit, but could be expanded if we want more
  * complicated navigation in the future.
  */
-export default React.createClass({
+export default createReactClass({
 
     getInitialState() {
         return {
@@ -26,18 +28,18 @@ export default React.createClass({
     },
 
     propTypes: {
-        navTo: React.PropTypes.oneOfType([      // Value passed down to the click
-            React.PropTypes.string,             // handler at the lowest level primitive.
-            React.PropTypes.number              // Will return to the onSelectionChange
+        navTo: PropTypes.oneOfType([      // Value passed down to the click
+            PropTypes.string,             // handler at the lowest level primitive.
+            PropTypes.number              // Will return to the onSelectionChange
         ]),
-        direction: React.PropTypes.oneOf([      // Should the navigation go at the top or
+        direction: PropTypes.oneOf([      // Should the navigation go at the top or
             Directions.NORTH,                   // bottom of the container
             Directions.SOUTH
         ]),
-        margin: React.PropTypes.number,         // How far to inset the navigation
-        width: React.PropTypes.number,          // Height and width of the container to
-        height: React.PropTypes.number,         // guide positioning of the navigation
-        onSelectionChange: React.PropTypes.func // Callback for when the navigation is pressed
+        margin: PropTypes.number,         // How far to inset the navigation
+        width: PropTypes.number,          // Height and width of the container to
+        height: PropTypes.number,         // guide positioning of the navigation
+        onSelectionChange: PropTypes.func // Callback for when the navigation is pressed
     },
 
     getDefaultProps() {

@@ -12,6 +12,8 @@ import React from "react";
 import Victor from "victor";
 import _ from "underscore";
 import Label from "./edge-label";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 // Alias
 const Vector = Victor;
@@ -30,7 +32,7 @@ const Vector = Victor;
  *
  * Stroke color and width can also be supplied.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {

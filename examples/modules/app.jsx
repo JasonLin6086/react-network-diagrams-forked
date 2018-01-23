@@ -14,7 +14,7 @@ import { Link } from "react-router";
 const logo = document.createElement("img");
 logo.src = require("../img/logo.png");
 
-export default React.createClass({
+export default createReactClass({
 
     render() {
         return (

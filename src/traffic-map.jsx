@@ -12,12 +12,14 @@ import React from "react";
 import _ from "underscore";
 import BaseMap from "./map-base";
 import Resizable from "./resizable";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * A high level component for showing network topology, including visualizing
  * network traffic as a heat map.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {
@@ -42,24 +44,24 @@ export default React.createClass({
     propTypes: {
 
         /** The width of the circuit diagram */
-        width: React.PropTypes.number,
+        width: PropTypes.number,
 
         /**
          * The topology structure, as detailed above. This contains the
          * descriptions of nodes, edges and paths used to render the topology
          */
-        topology: React.PropTypes.object,
+        topology: PropTypes.object,
 
         /**
          * Specified as an object containing x1, y1 and x2, y2. This is the region
          * to display on the map. If this isn't specified the bounds will be
          * calculated from the nodes in the Map.
          */
-        bounds: React.PropTypes.shape({
-            x1: React.PropTypes.number,
-            y1: React.PropTypes.number,
-            x2: React.PropTypes.number,
-            y2: React.PropTypes.number
+        bounds: PropTypes.shape({
+            x1: PropTypes.number,
+            y1: PropTypes.number,
+            x2: PropTypes.number,
+            y2: PropTypes.number
         }),
 
         /**
@@ -71,7 +73,7 @@ export default React.createClass({
          *  * "pathBidirectionalArrow" - similar to "bidirectionalArrow", but only for
          *  edges that are used in the currently displayed path(s).
          */
-        edgeDrawingMethod: React.PropTypes.oneOf([
+        edgeDrawingMethod: PropTypes.oneOf([
             "simple",
             "bidirectional",
             "pathBidirectionalArrow"
@@ -82,9 +84,9 @@ export default React.createClass({
          * paths will be shown. If a list then only the paths in that list will be
          * shown. The default is to show no paths.
          */
-        showPaths: React.PropTypes.oneOfType([
-            React.PropTypes.bool,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+        showPaths: PropTypes.oneOfType([
+            PropTypes.bool,
+            PropTypes.arrayOf(PropTypes.string)
         ]),
 
         /**
@@ -102,7 +104,7 @@ export default React.createClass({
          * };
          * ```
          */
-        edgeThinknessMap: React.PropTypes.object,
+        edgeThinknessMap: PropTypes.object,
 
         /**
          * A mapping of the edge name (which is source + "--" + target) to a
@@ -122,7 +124,7 @@ export default React.createClass({
          *     }, ...
          *  }
          */
-        edgeColorMap: React.PropTypes.array,
+        edgeColorMap: PropTypes.array,
 
         /**
          * A mapping from the type field in the node object to a size to draw the shape
@@ -135,7 +137,7 @@ export default React.createClass({
          * };
          * ```
          */
-        nodeSizeMap: React.PropTypes.object,
+        nodeSizeMap: PropTypes.object,
 
         /**
          * Mapping of node name to shape (default is "circle", other options are
@@ -148,7 +150,7 @@ export default React.createClass({
          * };
          * ```
          */
-        nodeShapeMap: React.PropTypes.object,
+        nodeShapeMap: PropTypes.object,
 
         /**
          * A mapping of the edge name (which is source + "--" + target) to a
@@ -168,7 +170,7 @@ export default React.createClass({
          * }
          * ```
          */
-        edgeShapeMap: React.PropTypes.object
+        edgeShapeMap: PropTypes.object
     },
 
     bounds() {

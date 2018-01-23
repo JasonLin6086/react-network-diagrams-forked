@@ -16,6 +16,8 @@ import Label from "./map-node-label";
 import Legend from "./map-legend";
 import SimpleEdge from "./edge-simple";
 import BidirectionalEdge from "./edge-bidirectional";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 import "./map.css";
 
@@ -27,32 +29,32 @@ function getElementOffset(element) {
     return {top, left};
 }
 
-export default React.createClass({
+export default createReactClass({
 
     displayName: "BaseMap",
 
     propTypes: {
-        topology: React.PropTypes.object.isRequired,
-        width: React.PropTypes.number,
-        height: React.PropTypes.number,
-        margin: React.PropTypes.number,
-        bounds: React.PropTypes.shape({
-            x1: React.PropTypes.number,
-            y1: React.PropTypes.number,
-            x2: React.PropTypes.number,
-            y2: React.PropTypes.number
+        topology: PropTypes.object.isRequired,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        margin: PropTypes.number,
+        bounds: PropTypes.shape({
+            x1: PropTypes.number,
+            y1: PropTypes.number,
+            x2: PropTypes.number,
+            y2: PropTypes.number
         }),
-        edgeDrawingMethod: React.PropTypes.oneOf([
+        edgeDrawingMethod: PropTypes.oneOf([
             "simple",
             "bidirectionalArrow",
             "pathBidirectionalArrow"
         ]),
-        legendItems: React.PropTypes.shape({
-            x: React.PropTypes.number,
-            y: React.PropTypes.number,
-            edgeTypes: React.PropTypes.object,
-            nodeTypes: React.PropTypes.object,
-            colorSwatches: React.PropTypes.object
+        legendItems: PropTypes.shape({
+            x: PropTypes.number,
+            y: PropTypes.number,
+            edgeTypes: PropTypes.object,
+            nodeTypes: PropTypes.object,
+            colorSwatches: PropTypes.object
         })
     },
 

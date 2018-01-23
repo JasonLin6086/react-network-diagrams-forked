@@ -9,13 +9,15 @@
  */
 
 import React from "react";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * This takes a single child and inserts a prop 'width' on it that is the
  * current width of the this container. This is handy if you want to surround
  * a chart or other svg diagram and have this drive the chart width.
  */
-export default React.createClass({
+export default createReactClass({
 
     getInitialState() {
         return {width: 0};

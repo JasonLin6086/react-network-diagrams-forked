@@ -10,6 +10,8 @@
 
 import React from "react";
 import _ from "underscore";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * Gets an x, y, labelPosition, textAnchor and rotation and
@@ -17,7 +19,7 @@ import _ from "underscore";
  * The label can be a single string, or an array of strings
  * to display on multiple lines.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {

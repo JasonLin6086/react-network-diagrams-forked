@@ -10,6 +10,8 @@
 
 import React from "react";
 import Node from "./node";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * Endpoint drawing primative. This essentially renders the shape we use to represent
@@ -25,7 +27,7 @@ import Node from "./node";
  * these require pre-determined offset distances based on the rotation. The `label` prop
  * is the name that will be displayed on the endpoint.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {
@@ -42,13 +44,13 @@ export default React.createClass({
     propTypes: {
 
         /** The label for the endpoint */
-        label: React.PropTypes.string,
+        label: PropTypes.string,
 
         /**
          * Where the label is positioned relative to the endpoint node as well
          * as how the label is drawn (angled or not).
          */
-        labelPosition: React.PropTypes.oneOf([
+        labelPosition: PropTypes.oneOf([
             "left",
             "right",
             "top",
@@ -63,19 +65,19 @@ export default React.createClass({
             "toprightangled"]),
 
         /** An offset to the position of the label which can be used for fine tuning */
-        offset: React.PropTypes.number,
+        offset: PropTypes.number,
 
         /** The shape of the endpoint */
-        shape: React.PropTypes.oneOf(["circle", "square", "cloud"]),
+        shape: PropTypes.oneOf(["circle", "square", "cloud"]),
 
         /** When the endpoint shape is a `circle`, this controls the size of the endpoint */
-        radius: React.PropTypes.number,
+        radius: PropTypes.number,
 
         /** When the endpoint shape is a `square`, this controls the radius of corners */
-        roundedX: React.PropTypes.number,
+        roundedX: PropTypes.number,
 
         /** When the endpoint shape is a `square`, this controls the radius of corners */
-        roundedY: React.PropTypes.number,
+        roundedY: PropTypes.number,
 
         /**
          * The style of the `<Endpoint>` has two components, one for the
@@ -104,16 +106,16 @@ export default React.createClass({
          * }
          * ```
          */
-        style: React.PropTypes.object,
+        style: PropTypes.object,
 
         /** Display the endpoint muted */
-        muted: React.PropTypes.bool,
+        muted: PropTypes.bool,
 
         /** Display the endpoint as selected */
-        selected: React.PropTypes.bool,
+        selected: PropTypes.bool,
 
         /** Display the endpoint highlighted  */
-        highlighted: React.PropTypes.bool
+        highlighted: PropTypes.bool
     },
 
     render() {

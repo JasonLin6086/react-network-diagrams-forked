@@ -17,6 +17,8 @@
 import React from "react";
 import Endpoint from "./circuit-diagram-endpoint";
 import Line from "./edge-simple";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * The `x1`, `x2`, `y1`, and `y2` properties determine the position of the endpoints on the `<svg>` element.
@@ -30,7 +32,7 @@ import Line from "./edge-simple";
  * The `label` property is the name that will be displayed on the line. If you want to display multiple
  * lines, the label can take an array of strings, with each array element displayed on a separate line.
  */
-export default React.createClass({
+export default createReactClass({
 
     getInitialState() {
         return {highlighted: false };
@@ -61,23 +63,23 @@ export default React.createClass({
         /**
          * Controls shape of the line, can be "linear", "square", "angled", "arc".
          */
-        lineShape: React.PropTypes.oneOf(["linear", "square", "angled", "arc"]),
+        lineShape: PropTypes.oneOf(["linear", "square", "angled", "arc"]),
 
         //
         // Positional Props used by all shapes
         //
 
         /** Controls the x-coordinate of the line beginning. */
-        x1: React.PropTypes.number,
+        x1: PropTypes.number,
 
         /** Controls the x-coordinate of the line end. */
-        x2: React.PropTypes.number,
+        x2: PropTypes.number,
 
         /** Controls the y-coordinate of the line beginning. */
-        y1: React.PropTypes.number,
+        y1: PropTypes.number,
 
         /** Controls the y-coordinate of the line end. */
-        y2: React.PropTypes.number,
+        y2: PropTypes.number,
 
         //
         // Label Props used by all shapes
@@ -87,31 +89,31 @@ export default React.createClass({
          * Provides label to be displayed; Takes either a string, or an array of
          * strings for multi-line labels.
          */
-        label: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.arrayOf(React.PropTypes.string)
+        label: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.arrayOf(PropTypes.string)
         ]),
 
         /**
          * Controls where label is situated around the line.
          */
-        labelPosition: React.PropTypes.oneOf(["top", "bottom", "center"]),
+        labelPosition: PropTypes.oneOf(["top", "bottom", "center"]),
 
         /**
          * Controls the x pixel offset from labelPosition
          */
-        labelOffsetX: React.PropTypes.number,
+        labelOffsetX: PropTypes.number,
 
         /**
          * Controls the y pixel offset from labelPosition
          */
-        labelOffsetY: React.PropTypes.number,
+        labelOffsetY: PropTypes.number,
 
 
         /**
          * Controls the justification of the text label
          */
-        textAnchor: React.PropTypes.oneOf(["begin", "middle", "end"]),
+        textAnchor: PropTypes.oneOf(["begin", "middle", "end"]),
 
         //
         // Style Props, used by all shapes
@@ -135,32 +137,32 @@ export default React.createClass({
          * for line-caps and square connections, allowing different colors to be
          * specified for the interior of the shapes.
          */
-        style: React.PropTypes.object,
+        style: PropTypes.object,
 
         /** Display the endpoint muted */
-        muted: React.PropTypes.bool,
+        muted: PropTypes.bool,
 
         /** Display the endpoint selected */
-        selected: React.PropTypes.bool,
+        selected: PropTypes.bool,
 
         //
         // Props for "square" shape
         //
 
         /** When the endpoint shape is a `square`, this controls the radius of corners. */
-        roundedX: React.PropTypes.number,
+        roundedX: PropTypes.number,
 
         /** When the endpoint shape is a `square`, this controls the radius of corners. */
-        roundedY: React.PropTypes.number,
+        roundedY: PropTypes.number,
 
         /**
          * Used to determine the height of the square if the endpoint shape is a `square`,
          * as well as when calculating the label position around a square.
          */
-        size: React.PropTypes.number,
+        size: PropTypes.number,
 
         /** Boolean value that controls if a horizontal line is drawn down the center of a square. */
-        centerLine: React.PropTypes.bool,
+        centerLine: PropTypes.bool,
 
         //
         // Line offset Props, used by "angle" and "curved" shapes
@@ -169,17 +171,17 @@ export default React.createClass({
         /**
          * Controls the angle of the offset from the center of the line.
          */
-        position: React.PropTypes.number,
+        position: PropTypes.number,
 
         /**
          * Controls the distance from the center x axis the curve will arc through
          */
-        curveOffset: React.PropTypes.number,
+        curveOffset: PropTypes.number,
 
         /**
          * Controls the length of the offset line
          */
-        bendOffset: React.PropTypes.number,
+        bendOffset: PropTypes.number,
 
         /**
          * The curveDirection property determines whether the curve moves to the
@@ -193,7 +195,7 @@ export default React.createClass({
          * will instead rotate a point offset from the x and y by an angle. If the
          * curveDirection is left, this will move clockwise, and will move counterClockwise if right.
          */
-        curveDirection: React.PropTypes.oneOf(["left", "right"]),
+        curveDirection: PropTypes.oneOf(["left", "right"]),
 
         //
         // Linecap props, used by all shapes
@@ -202,22 +204,22 @@ export default React.createClass({
         /**
          * Controls the size of the Line-cap
          */
-        radius: React.PropTypes.number,
+        radius: PropTypes.number,
 
         /**
          * Controls the shape of the line-cap.
          */
-        endpointShape: React.PropTypes.oneOf(["circle", "square", "cloud"]),
+        endpointShape: PropTypes.oneOf(["circle", "square", "cloud"]),
 
         /**
          * If a square endpoint shape is used, controls the corner rounding of the x-axis of the square
          */
-        endPointRoundedX: React.PropTypes.number,
+        endPointRoundedX: PropTypes.number,
 
         /**
          * If a square endpoint shape is used, controls the corner rounding of the y-axis of the square
          */
-        endPointRoundedY: React.PropTypes.number,
+        endPointRoundedY: PropTypes.number,
 
         //
         // Arrow props, not used by "square"
@@ -229,17 +231,17 @@ export default React.createClass({
          * Line-caps replaced with a directional arrow. Arrowheads can be sized using the
          * arrowWidth and arrowHeight property.
          */
-        arrow: React.PropTypes.bool,
+        arrow: PropTypes.bool,
 
         /**
          * Controls the width of an arrow head
          */
-        arrowWidth: React.PropTypes.number,
+        arrowWidth: PropTypes.number,
 
         /**
          * Controls the height of an arrow head
          */
-        arrowHeight: React.PropTypes.number,
+        arrowHeight: PropTypes.number,
 
         //
         // Navigation Props, used by all shapes
@@ -248,21 +250,21 @@ export default React.createClass({
         /**
          * Boolean value that determines if the element uses the onSelectionChange change and can be clicked
          */
-        noNavigate: React.PropTypes.bool,
+        noNavigate: PropTypes.bool,
 
         /**
          * Callback specified to handle selection of the circuit. The value supplied
          * to the callback is whatever was specified in the navTo prop.
          */
-        onSelectionChange: React.PropTypes.func,
+        onSelectionChange: PropTypes.func,
 
         /**
          * Value passed down to the click handler at the lowest level primitive.
          * Will return to the onSelectionChange its value.
          */
-        navTo: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.number
+        navTo: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number
         ])
     },
 

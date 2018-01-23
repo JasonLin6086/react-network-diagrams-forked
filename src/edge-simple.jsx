@@ -14,8 +14,10 @@ import ArcEdge from "./edge-arc";
 import LinearEdge from "./edge-linear";
 import SquareEdge from "./edge-square";
 import AngledEdge from "./edge-angled";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {
@@ -160,4 +162,3 @@ export default React.createClass({
         }
     }
 });
-

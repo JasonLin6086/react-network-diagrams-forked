@@ -11,6 +11,8 @@
 import React from "react";
 import _ from "underscore";
 import Label from "./edge-label";
+import createReactClass from "create-react-class";
+import PropTypes from 'prop-types';
 
 /**
  * This component draws a rectangle using the source and target to determine sizing and position. The
@@ -20,7 +22,7 @@ import Label from "./edge-label";
  *
  * The color and width of the rectangle may also be supplied.
  */
-export default React.createClass({
+export default createReactClass({
 
     getDefaultProps() {
         return {
