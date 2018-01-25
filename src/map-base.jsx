@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import d3 from "d3";
+import * as d3 from "d3";
 import _ from "underscore";
 import Node from "./node";
 import Label from "./map-node-label";
@@ -148,7 +148,7 @@ export default createReactClass({
 
     scale() {
         return {
-            xScale: d3.scale.linear()
+            xScale: d3.scaleLinear()
                 .domain([
                     this.props.bounds.x1,
                     this.props.bounds.x2
@@ -157,7 +157,7 @@ export default createReactClass({
                     this.props.margin,
                     this.props.width - this.props.margin * 2
                 ]),
-            yScale: d3.scale.linear()
+            yScale: d3.scaleLinear()
                 .domain([
                     this.props.bounds.y1,
                     this.props.bounds.y2

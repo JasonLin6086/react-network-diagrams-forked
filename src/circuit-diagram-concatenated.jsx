@@ -165,7 +165,7 @@ export default createReactClass({
          */
         parentId: PropTypes.oneOfType([
             PropTypes.string,
-            PropTypes.Number
+            PropTypes.number
         ])
     },
 

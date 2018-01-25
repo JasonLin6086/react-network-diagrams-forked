@@ -607,7 +607,7 @@
             },
             {
               "name": "custom",
-              "raw": "React.PropTypes.Number"
+              "raw": "React.PropTypes.number"
             }
           ]
         },
@@ -1588,7 +1588,7 @@
             },
             {
               "name": "custom",
-              "raw": "React.PropTypes.Number"
+              "raw": "React.PropTypes.number"
             }
           ]
         },
